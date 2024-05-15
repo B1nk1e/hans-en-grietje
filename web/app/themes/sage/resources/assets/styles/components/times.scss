@@ -1,0 +1,25 @@
+.times {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid color(stone-10);
+
+	.time-item {
+		display: flex;
+		justify-content: space-between;
+		padding: spacer(2) spacer(3);
+
+		.day {
+			font-weight: 700;
+		}
+
+		&:nth-child(odd) {
+			background-color: color(stone-20);
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		.time-item {
+			padding: spacer(3) spacer(4);
+		}
+	}
+}

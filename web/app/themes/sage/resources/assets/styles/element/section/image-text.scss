@@ -1,0 +1,77 @@
+section.section--image-text {
+	--py-image-text: #{spacer(5)};
+	position: relative;
+	margin-top: calc(-1 * var(--margin-section-y));
+	padding-top: var(--margin-section-y);
+	overflow: hidden;
+
+	.image-text__web {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		right: 0;
+		pointer-events: none;
+		width: 100vw;
+
+		.image-text__web--web {
+			// width: 100%;
+			transform: translate(60%, -50%) rotate(195deg);
+
+			svg {
+				width: 100%;
+			}
+		}
+
+		.image-text__web--spider {
+			position: absolute;
+			top: 7%;
+			right: 13.5%;
+			width: 3%;
+
+			svg {
+				width: 100%;
+			}
+		}
+	}
+
+	.image-text__figure {
+		picture,
+		img {
+			width: 100%;
+		}
+	}
+
+	.image-text__content {
+		padding: {
+			top: var(--py-image-text);
+			bottom: var(--py-image-text);
+		}
+
+		.subheader {
+			margin-bottom: spacer();
+			color: color(stone);
+		}
+
+		.image-text__text {
+			margin-top: spacer(3);
+		}
+
+		.image-text__btn {
+			margin-top: spacer(4);
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		--py-image-text: var(--margin-section-y);
+
+		.image-text__figure {
+			position: relative;
+			height: 100%;
+
+			picture,
+			img {
+				@include fill-w-h(true);
+			}
+		}
+	}
+}

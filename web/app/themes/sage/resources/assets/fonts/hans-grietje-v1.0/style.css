@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'hans-grietje';
+  src:  url('fonts/hans-grietje.eot?2ybw3m');
+  src:  url('fonts/hans-grietje.eot?2ybw3m#iefix') format('embedded-opentype'),
+    url('fonts/hans-grietje.woff2?2ybw3m') format('woff2'),
+    url('fonts/hans-grietje.ttf?2ybw3m') format('truetype'),
+    url('fonts/hans-grietje.woff?2ybw3m') format('woff'),
+    url('fonts/hans-grietje.svg?2ybw3m#hans-grietje') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hans-grietje' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-marker .path1:before {
+  content: "\e906";
+  color: rgb(26, 115, 232);
+}
+.icon-marker .path2:before {
+  content: "\e907";
+  margin-left: -0.7021484375em;
+  color: rgb(26, 115, 232);
+}
+.icon-marker .path3:before {
+  content: "\e908";
+  margin-left: -0.7021484375em;
+  color: rgb(234, 67, 53);
+}
+.icon-marker .path4:before {
+  content: "\e909";
+  margin-left: -0.7021484375em;
+  color: rgb(234, 67, 53);
+}
+.icon-marker .path5:before {
+  content: "\e90a";
+  margin-left: -0.7021484375em;
+  color: rgb(66, 133, 244);
+}
+.icon-marker .path6:before {
+  content: "\e90b";
+  margin-left: -0.7021484375em;
+  color: rgb(251, 188, 4);
+}
+.icon-marker .path7:before {
+  content: "\e90c";
+  margin-left: -0.7021484375em;
+  color: rgb(52, 168, 83);
+}
+.icon-chevron-left:before {
+  content: "\e900";
+}
+.icon-chevron-down:before {
+  content: "\e901";
+}
+.icon-chevron-right:before {
+  content: "\e902";
+}
+.icon-star:before {
+  content: "\e903";
+}
+.icon-star-half .path1:before {
+  content: "\e904";
+  color: rgb(68, 68, 68);
+  opacity: 0.2;
+}
+.icon-star-half .path2:before {
+  content: "\e905";
+  margin-left: -1.0771484375em;
+  color: rgb(68, 68, 68);
+}

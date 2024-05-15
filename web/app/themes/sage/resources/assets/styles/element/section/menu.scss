@@ -1,0 +1,134 @@
+section.section--menu {
+	--width-menu-block: 100%;
+	--padding-menu-block: #{spacer(3)};
+
+	&:first-child {
+		.menu-intro {
+			margin-top: calc(var(--margin-section-y) / 1.6);
+		}
+	}
+
+	.menu-intro {
+		text-align: center;
+	}
+
+	.subheader {
+		margin-bottom: spacer();
+		color: rgba(color(title), 0.3);
+	}
+
+	.menu-text {
+		margin-top: spacer(3);
+	}
+
+	.menu-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: spacer(1.5);
+		margin-top: spacer(5);
+	}
+
+	.menu-btn {
+		display: flex;
+		align-items: center;
+		text-align: left;
+		line-height: 1.35;
+		gap: spacer(2);
+		flex: 0 0 100%;
+		padding: 10px 14px;
+		border-radius: 999px;
+		background-color: color(milk);
+
+		@media (hover: hover) and (pointer: fine) {
+			transition: background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+
+			&:hover {
+				background-color: color(rose);
+				color: color(milk);
+			}
+		}
+	}
+
+	.menu-btn__icon {
+		position: relative;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.menu-btn__country {
+		font-weight: 700;
+	}
+
+	.menu-btn__text {
+		font-size: clamp-calculator(12, 14);
+	}
+
+	.menu-figure {
+		width: 100%;
+		margin-top: spacer(5);
+
+		picture,
+		img {
+			width: 100%;
+		}
+	}
+
+	.menu-blocks {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: var(--app-gutter-x-half);
+		gap: var(--app-gutter-x-half);
+
+		.menu-block {
+			flex: 0 0 var(--width-menu-block);
+			max-width: var(var(--width-menu-block));
+			background-color: color(milk);
+			padding: var(--padding-menu-block);
+			text-align: center;
+		}
+
+		.menu-block__title {
+			font-size: clamp-calculator(20, 24);
+			font-weight: 700;
+		}
+
+		.menu-block__text {
+			margin-top: spacer(2);
+		}
+
+		.button-wrapper {
+			justify-content: center;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		--width-menu-block: calc(33.333% - (var(--app-gutter-x-half) / 1.5));
+
+		.menu-wrapper {
+			gap: var(--app-gutter-x-half);
+		}
+
+		.menu-text {
+			margin-top: spacer(4);
+		}
+
+		.menu-btn {
+			flex: 1;
+		}
+		.menu-figure {
+			margin-top: spacer(7.5);
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--padding-menu-block: #{spacer(5)};
+	}
+}

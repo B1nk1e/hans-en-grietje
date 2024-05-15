@@ -1,0 +1,45 @@
+/* stylelint-disable color-no-hex  */
+$colors: (
+	// Primary
+	title: #0a0a0a,
+	text: #1e1e1e,
+	creme: #f4efe9,
+	creme-dark: #e1dcd5,
+	rose: #ed1b24,
+	// Secondary
+	star: #ff8b00,
+	// Grayscale
+	cola: #000,
+	milk: #fff,
+	stone: #a5a5a5,
+	stone-30: #f7f7f7,
+	stone-20: #fbfbfb,
+	stone-10: #f1f1f1
+);
+/* stylelint-enable color-no-hex  */
+
+// Color generation
+@function color($color) {
+	@if map-has-key($colors, $color) {
+		@return map-get($colors, $color);
+	}
+
+	@return null;
+}
+
+/* stylelint-disable declaration-no-important */
+@each $name, $value in $colors {
+	.text-#{$name} {
+		color: $value !important;
+
+		> * {
+			color: inherit;
+		}
+	}
+
+	.bg-#{$name} {
+		background-color: $value !important;
+	}
+}
+
+/* stylelint-enable declaration-no-important */

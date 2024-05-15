@@ -1,0 +1,209 @@
+@use "sass:math";
+
+body {
+	font: {
+		family: var(--font-family-base);
+		weight: 500;
+	}
+	font-size: var(--font-size-base);
+	line-height: 140%;
+
+	b,
+	strong {
+		font-weight: 700;
+	}
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	text-rendering: optimizeLegibility;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: "liga", "kern";
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: var(--font-family-heading);
+	font-weight: 600;
+}
+
+h1,
+.h1 {
+	font-size: clamp-calculator(32, 72);
+	line-height: clamp-calculator(32, 72);
+	letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(32, 72))});
+}
+
+h2,
+.h2 {
+	font-size: clamp-calculator(28, 64);
+	line-height: clamp-calculator(28, 64);
+	letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(28, 64))});
+}
+
+h3,
+.h3 {
+	font-size: clamp-calculator(26, 48);
+	line-height: clamp-calculator(26, 48);
+	letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(26, 48))});
+}
+
+h4,
+.h4 {
+	font-size: clamp-calculator(24, 42);
+	line-height: clamp-calculator(24, 42);
+	letter-spacing: calc(-1 * #{calc(3 / 100 * clamp-calculator(24, 42))});
+}
+
+h5,
+.h5 {
+	font-size: clamp-calculator(20, 32);
+	line-height: clamp-calculator(20, 32);
+	letter-spacing: calc(-1 * #{calc(2 / 100 * clamp-calculator(20, 32))});
+}
+
+h6,
+.h6 {
+	font-size: clamp-calculator(18, 28);
+	line-height: clamp-calculator(18, 28);
+	letter-spacing: calc(-1 * #{calc(2 / 100 * clamp-calculator(18, 28))});
+}
+
+.subheader {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+// Textual
+main {
+	p,
+	ul,
+	ol,
+	table {
+		&:not([class*="-none"]) {
+			+ *:not(.btn) {
+				margin-top: spacer(2);
+
+				@include media-breakpoint-up(xl) {
+					margin-top: spacer(3);
+				}
+			}
+		}
+	}
+}
+
+// Anchors
+p a,
+ul li a,
+ol li a,
+small a,
+td a,
+.link {
+	&:not(.btn) {
+		font-weight: 700;
+		text-decoration: underline;
+	}
+}
+
+//Lists
+ul {
+	&:not(&.checked, &.stepper, .navbar &) {
+		li {
+			position: relative;
+			padding-left: spacer(3);
+
+			&:not(:first-child) {
+				margin-top: spacer();
+			}
+
+			&:before {
+				content: "·";
+				position: absolute;
+				top: 0px;
+				left: 0;
+				font-size: 32px;
+				vertical-align: middle;
+				margin-right: 12px;
+			}
+		}
+	}
+
+	&.checked {
+		li {
+			&:before {
+				@include checkmark;
+			}
+		}
+	}
+}
+
+picture,
+figure {
+	figcaption {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-bottom: 0;
+			color: inherit;
+		}
+	}
+}
+
+.text-link__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: spacer(3);
+	margin-top: spacer(2);
+}
+
+.text-link {
+	position: relative;
+	text-decoration: none !important;
+	font-weight: 300;
+	color: color(cola);
+
+	&::before {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		content: "";
+		height: 2px;
+		width: 100%;
+		background-color: color(cola);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		transition: color var(--speed-default) var(--cubic-bezier-2);
+
+		&::before {
+			transition: background-color var(--speed-default) var(--cubic-bezier-2);
+		}
+
+		&:hover {
+			color: color(neutral);
+
+			&::before {
+				background-color: color(neutral);
+			}
+		}
+	}
+}

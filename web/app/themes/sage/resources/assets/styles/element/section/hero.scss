@@ -1,0 +1,132 @@
+section.section--hero {
+	--width-card-hero: 100%;
+
+	.hero-inner {
+		position: relative;
+		padding-top: var(--height-navbar);
+	}
+
+	.hero-bg {
+		@include fill-w-h;
+		z-index: -1;
+		border-radius: 0 0 spacer(7.5) spacer(7.5);
+		overflow: hidden;
+
+		&::before {
+			@include fill-w-h;
+			content: "";
+			z-index: 1;
+			background: linear-gradient(0deg, rgba(color(cola), 0) 60.85%, color(cola) 101.71%), linear-gradient(180deg, rgba(color(cola), 0) 33.93%, rgba(color(cola), 0.4) 88.68%);
+		}
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		padding: {
+			top: var(--margin-section-y);
+			bottom: var(--margin-section-y);
+		}
+		color: color(milk);
+	}
+
+	.hero-intro {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		.subheader {
+			margin-bottom: spacer();
+		}
+	}
+
+	.hero-intro__text {
+		margin-top: spacer(3);
+	}
+
+	.hero-cards {
+		position: relative;
+		z-index: 2;
+		margin-top: calc(-1 * (var(--height-card-hero) / 3));
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: calc(var(--app-gutter-x-half));
+
+		.card {
+			flex: 0 0 var(--width-card-hero);
+			max-width: var(--width-card-hero);
+		}
+	}
+
+	.hero-social {
+		margin-top: spacer(3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		gap: spacer();
+	}
+
+	&.has-blocks {
+		.hero-content {
+			padding-bottom: calc((var(--height-card-hero) / 3) + var(--margin-section-y));
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		--width-card-hero: calc(65% - (var(--app-gutter-x-half) / 2));
+
+		.container-fluid--hero {
+			height: 0;
+		}
+
+		.hero-social {
+			margin-top: 0;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+
+		.hero-cards {
+			margin-top: 0;
+			transform: translateY(-100%);
+
+			.card {
+				height: var(--height-card-hero);
+
+				.card-figure {
+					@include fill-w-h;
+				}
+			}
+		}
+
+		&.has-blocks {
+			.hero-content {
+				padding-bottom: calc((var(--height-card-hero) / 2) + (var(--margin-section-y) / 1.5));
+			}
+
+			.hero-inner {
+				margin-bottom: calc(var(--height-card-hero) / 2);
+			}
+		}
+
+		&.section--hero--homepage {
+			--width-card-hero: calc(33.333% - (var(--app-gutter-x-half) / 1.5));
+
+			.hero-intro {
+				align-items: flex-start;
+				text-align: left;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--width-card-hero: calc(33.333% - (var(--app-gutter-x-half) / 1.5));
+	}
+}

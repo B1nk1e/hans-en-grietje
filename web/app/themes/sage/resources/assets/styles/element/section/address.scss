@@ -1,0 +1,48 @@
+section.section--address {
+	&:first-child {
+		padding-top: calc((var(--margin-section-y) / 1.6) + var(--height-navbar)) !important;
+	}
+
+	* {
+		&:not(h1, .subheader) {
+			@extend .h6;
+		}
+	}
+
+	h1 {
+		margin-bottom: spacer(6);
+	}
+
+	.subheader {
+		font-family: var(--font-family-base);
+		font-weight: 400;
+		color: color(stone);
+		margin-bottom: spacer();
+	}
+
+	.address-block {
+		display: flex;
+		flex-direction: column;
+		gap: spacer(1.5);
+
+		a {
+			@media (hover: hover) and (pointer: fine) {
+				transition: color var(--speed-default) var(--cubic-bezier-2);
+
+				&:hover {
+					color: color(rose);
+				}
+			}
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+		h1 {
+			margin-bottom: 0;
+		}
+
+		.subheader {
+			margin-top: spacer(3);
+		}
+	}
+}

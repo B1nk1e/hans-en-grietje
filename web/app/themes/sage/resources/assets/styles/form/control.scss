@@ -1,0 +1,327 @@
+.form-control {
+	width: 100%;
+	height: var(--size-input);
+	position: relative;
+
+	&::placeholder {
+		color: rgba(250, 250, 250, 60%);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+	}
+
+	&[readonly] {
+		background-color: rgba(color(rose), 0.4);
+	}
+
+	&[type="search"] {
+		//
+	}
+
+	&:not(textarea) {
+		display: flex;
+		align-items: center;
+	}
+
+	&.invalid {
+		outline: color(error) solid 2px;
+	}
+}
+
+textarea.form-control {
+	display: block;
+	min-height: 150px;
+	resize: vertical;
+}
+
+.form-wrapper {
+	width: 100%;
+	max-width: 560px;
+	margin: 0 auto;
+	border: 1px solid color(stone-20);
+	border-radius: spacer();
+	padding: spacer(3) spacer(2);
+
+	h1 {
+		margin-bottom: spacer(4);
+		text-align: center;
+	}
+
+	@include media-breakpoint-up(lg) {
+		padding: spacer(4);
+	}
+
+	@include media-breakpoint-up(xxl) {
+		padding: spacer(7.5);
+	}
+}
+
+.form-group,
+.woocommerce-address-fields__field-wrapper {
+	--gap-form-group: #{spacer(2)};
+	--px-form: 21px;
+	--py-form: #{spacer(3)};
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap-form-group);
+
+	.form-grouping {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-top: spacer(3);
+		gap: spacer(3);
+	}
+
+	.form-row {
+		display: flex;
+		flex-direction: column;
+		width: auto;
+		margin: 0 !important;
+		padding: 0 !important;
+		position: relative;
+		float: none !important;
+
+		label {
+			color: color(stone);
+			position: absolute;
+			top: var(--px-form);
+			left: var(--py-form);
+			transform: scale(1);
+			transform-origin: top left;
+			transition: top var(--speed-default) var(--cubic-bezier-2), transform var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+
+			.required {
+				color: color(stone);
+			}
+
+			&[for="billing_country"],
+			&[for="billing_state"],
+			&[for="shipping_country"],
+			&[for="shipping_state"] {
+				top: calc(var(--px-form) * 0.4);
+				transform: scale(0.9);
+			}
+		}
+
+		.woocommerce-input-wrapper {
+			width: 100%;
+			height: 70px;
+			border: 1px solid color(stone-20);
+			border-radius: 999999px;
+			position: relative;
+
+			.password-input {
+				height: 100%;
+			}
+
+			.show-password-input {
+				color: color(stone-80);
+				top: 50%;
+				right: var(--py-form);
+				transform: translateY(-50%);
+
+				&::after {
+					transition: color var(--speed-default) var(--cubic-bezier-2);
+				}
+
+				&.display-password {
+					&::after {
+						color: color(color);
+					}
+				}
+			}
+		}
+
+		input {
+			width: 100%;
+			height: 100%;
+			padding: calc(var(--px-form) * 1.5) var(--py-form) calc(var(--px-form) * 0.5) !important;
+
+			&::placeholder {
+				color: transparent;
+			}
+		}
+
+		textarea {
+			padding: calc(var(--px-form) * 1.5) var(--py-form) var(--px-form) !important;
+
+			&::placeholder {
+				color: transparent;
+			}
+		}
+
+		.select2-container {
+			@include fill-w-h;
+
+			.select2-selection {
+				height: 100%;
+				border: none;
+				padding: calc(var(--px-form) * 1.5) var(--py-form) calc(var(--px-form) * 0.5) !important;
+				background-color: transparent;
+			}
+
+			.select2-selection__arrow {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				top: 50%;
+				right: var(--py-form);
+				transform: translateY(-50%);
+
+				&::after {
+					content: "+";
+					font-size: calc(var(--font-size-base) * 1.2);
+					transition: transform var(--speed-fast) var(--cubic-bezier-2);
+				}
+
+				b {
+					display: none;
+				}
+			}
+
+			.select2-selection__rendered {
+				padding: 0;
+				color: color(cola);
+			}
+
+			.select2-selection__placeholder {
+				color: color(cola);
+			}
+
+			&.select2-container--open {
+				.select2-selection__arrow {
+					&::after {
+						transform: rotate(45deg);
+					}
+				}
+			}
+		}
+
+		&.is-filled,
+		&.focusing {
+			label {
+				top: calc(var(--px-form) * 0.4);
+				transform: scale(0.9);
+			}
+		}
+
+		&.lost_password {
+			align-items: center;
+		}
+
+		&.form-row-first,
+		&.form-row-last {
+			flex: 0 0 calc(50% - (var(--gap-form-group) / 2));
+			max-width: calc(50% - (var(--gap-form-group) / 2));
+		}
+
+		&.notes,
+		&.form-row-wide {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		&.notes {
+			.woocommerce-input-wrapper {
+				height: initial;
+				border-radius: 35px;
+
+				textarea {
+					height: 125px;
+					resize: none;
+				}
+			}
+		}
+	}
+}
+
+.select2-dropdown {
+	margin-top: spacer();
+	border: 1px solid color(stone-20) !important;
+	border-radius: spacer() !important;
+	padding: 0;
+	box-shadow: 0 0 40px rgba(color(cola), 0.1);
+
+	.select2-search--dropdown {
+		display: none;
+		padding: spacer(2);
+	}
+
+	.select2-search__field {
+		border: 1px solid color(stone-20) !important;
+		border-radius: spacer(0.5);
+		padding: spacer() spacer(2);
+	}
+
+	.select2-results__options {
+		padding: {
+			top: spacer();
+			bottom: spacer();
+		}
+	}
+
+	.select2-results__option {
+		padding: spacer() spacer(2);
+		background-color: transparent;
+		transition: background-color var(--speed-default) var(--cubic-bezier-2);
+
+		&::before {
+			display: none;
+		}
+
+		&.select2-results__option--highlighted {
+			background-color: color(stone-20);
+			color: color(cola);
+		}
+	}
+}
+
+.woocommerce-address-fields__field-wrapper {
+	margin: spacer(4) 0;
+}
+
+.checkout_coupon .form-row.form-row-first {
+	height: 70px;
+	border: 1px solid #e9e9e9;
+	border-radius: 999999px;
+	position: relative;
+
+	input {
+		width: 100%;
+		height: 100%;
+		padding: 0 20px !important;
+
+		&::placeholder {
+			color: #909090;
+		}
+	}
+}
+
+.checkout_coupon .form-row .button,
+.woocommerce-address-fields button[type="submit"] {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid color(cola);
+	border-radius: spacer(0.5);
+	padding: 13px 32px;
+	background-color: color(cola);
+	font-weight: 900;
+	font-size: var(--font-size-base);
+	color: color(milk);
+	cursor: pointer;
+
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			border-color: lighten(color(cola), 20);
+			background-color: lighten(color(cola), 20);
+			color: color(milk);
+		}
+	}
+
+	@include media-breakpoint-up(xxl) {
+		padding: 20px 32px;
+	}
+}

@@ -1,0 +1,67 @@
+.card.card--agenda {
+	--padding-card-agenda: #{spacer(3)};
+	display: flex;
+	flex-direction: column-reverse;
+	background-color: color(milk);
+
+	.card-content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: var(--padding-card-agenda);
+	}
+
+	.card-top {
+		display: flex;
+		flex-direction: column;
+		gap: spacer(0.5);
+	}
+
+	.card-date {
+		color: color(rose);
+	}
+
+	.card-title {
+		font-size: clamp-calculator(18, 22);
+		font-weight: 700;
+	}
+
+	.card-address {
+		color: color(stone);
+	}
+
+	.card-text {
+		margin-top: spacer(3);
+	}
+
+	.card-figure {
+		min-height: 160px;
+		width: 100%;
+		position: relative;
+		display: block;
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		flex-direction: row;
+		gap: spacer(3);
+		padding: var(--padding-card-agenda);
+
+		.card-content {
+			padding: spacer() var(--padding-card-agenda) spacer() spacer();
+		}
+
+		.card-figure {
+			width: 210px;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--padding-card-agenda: #{spacer(3)};
+	}
+}

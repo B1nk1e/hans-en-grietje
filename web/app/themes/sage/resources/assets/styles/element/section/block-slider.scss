@@ -1,0 +1,43 @@
+section.section--block-slider {
+	position: relative;
+	overflow: hidden;
+
+	.block-slider__nav {
+		position: absolute;
+		top: spacer(5);
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		gap: spacer(2);
+		color: color(milk);
+		pointer-events: none;
+	}
+
+	.block-slider__line {
+		position: relative;
+		height: 1px;
+		width: 120px;
+		background-color: rgba(color(milk), 0.2);
+		overflow: hidden;
+
+		span {
+			@include fill-w-h;
+			background-color: color(milk);
+			// transform: translateX(-50%);
+		}
+	}
+
+	.tns-ovh {
+		overflow: visible;
+	}
+
+	.block-slider {
+		display: flex;
+
+		.card {
+			width: calc(100% / 12 * 8);
+		}
+	}
+}

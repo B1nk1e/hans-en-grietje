@@ -1,0 +1,80 @@
+.card.card--block {
+	--py-card-block: #{spacer(4)};
+	--px-card-block: #{spacer(4)};
+	overflow: hidden;
+	max-height: 1000px;
+
+	&::before {
+		@include fill-w-h;
+		content: "";
+		z-index: 2;
+		background-color: rgba(color(cola), 0.6);
+	}
+
+	.card-figure {
+		@include responsive-ratio(750, 1000, true);
+		position: relative;
+		z-index: 1;
+		display: block;
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.card-content {
+		position: relative;
+		@include fill-w-h;
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		gap: spacer(3);
+		padding: calc(var(--py-card-block) + var(--height-btn)) var(--px-card-block);
+		color: color(milk);
+
+		.btn {
+			position: absolute;
+			bottom: var(--py-card-block);
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		&::before {
+			transition: opacity var(--speed-slow) var(--cubic-bezier-3);
+			opacity: 1;
+		}
+
+		&:hover {
+			&::before {
+				opacity: 0.4;
+			}
+
+			.btn {
+				background-color: color(rose);
+				color: color(milk);
+			}
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		.card-figure {
+			@include responsive-ratio(1192, 1000, true);
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--px-card-block: 25%;
+
+		.card-content {
+			.btn {
+				bottom: spacer(6);
+			}
+		}
+	}
+}

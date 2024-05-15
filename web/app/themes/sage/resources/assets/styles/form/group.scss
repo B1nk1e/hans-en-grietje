@@ -1,0 +1,20 @@
+.form-group,
+.input-group {
+    width: 100%;
+    position: relative;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.input-group {
+    .input-group-append {
+        @include center-y('right', 20px);
+    }
+}

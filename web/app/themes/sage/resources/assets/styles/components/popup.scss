@@ -1,0 +1,43 @@
+.popup-video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	opacity: 0;
+	pointer-events: none;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(color(cola), 0.8);
+	backdrop-filter: blur(4px);
+	transition: opacity var(--speed-default) var(--cubic-bezier-2);
+
+	.video {
+		position: relative;
+		max-width: 90vw;
+
+		.btn--close-popup {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			transform: translate(50%, -50%);
+
+			i {
+				pointer-events: none;
+			}
+		}
+
+		video {
+			width: 100%;
+			max-height: 85vh;
+		}
+	}
+
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+	}
+}

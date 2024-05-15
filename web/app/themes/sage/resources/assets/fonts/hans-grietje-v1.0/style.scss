@@ -1,0 +1,113 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?2ybw3m');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?2ybw3m#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff2?2ybw3m') format('woff2'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?2ybw3m') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?2ybw3m') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?2ybw3m##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-marker .path1 {
+  &:before {
+    content: $icon-marker-path1;  
+    color: rgb(26, 115, 232);
+  }
+}
+.icon-marker .path2 {
+  &:before {
+    content: $icon-marker-path2;  
+    margin-left: -0.7021484375em;  
+    color: rgb(26, 115, 232);
+  }
+}
+.icon-marker .path3 {
+  &:before {
+    content: $icon-marker-path3;  
+    margin-left: -0.7021484375em;  
+    color: rgb(234, 67, 53);
+  }
+}
+.icon-marker .path4 {
+  &:before {
+    content: $icon-marker-path4;  
+    margin-left: -0.7021484375em;  
+    color: rgb(234, 67, 53);
+  }
+}
+.icon-marker .path5 {
+  &:before {
+    content: $icon-marker-path5;  
+    margin-left: -0.7021484375em;  
+    color: rgb(66, 133, 244);
+  }
+}
+.icon-marker .path6 {
+  &:before {
+    content: $icon-marker-path6;  
+    margin-left: -0.7021484375em;  
+    color: rgb(251, 188, 4);
+  }
+}
+.icon-marker .path7 {
+  &:before {
+    content: $icon-marker-path7;  
+    margin-left: -0.7021484375em;  
+    color: rgb(52, 168, 83);
+  }
+}
+.icon-chevron-left {
+  &:before {
+    content: $icon-chevron-left; 
+  }
+}
+.icon-chevron-down {
+  &:before {
+    content: $icon-chevron-down; 
+  }
+}
+.icon-chevron-right {
+  &:before {
+    content: $icon-chevron-right; 
+  }
+}
+.icon-star {
+  &:before {
+    content: $icon-star; 
+  }
+}
+.icon-star-half .path1 {
+  &:before {
+    content: $icon-star-half-path1;  
+    color: rgb(68, 68, 68);  
+    opacity: 0.2;
+  }
+}
+.icon-star-half .path2 {
+  &:before {
+    content: $icon-star-half-path2;  
+    margin-left: -1.0771484375em;  
+    color: rgb(68, 68, 68);
+  }
+}
+

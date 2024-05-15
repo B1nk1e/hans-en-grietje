@@ -1,0 +1,99 @@
+section.section--hero-arrangements {
+	--py-arrangements-hero-intro: #{spacer(5)};
+	--width-arrangement-hero-card: 100%;
+	--size-arrangement-hero: #{spacer(5)};
+
+	.hero-top {
+		position: relative;
+		border-radius: 0px 0px 32px 32px;
+		overflow: hidden;
+		padding: {
+			top: calc(var(--height-navbar) + var(--height-navbar-top));
+			bottom: var(--size-arrangement-hero);
+		}
+	}
+
+	.hero-figure {
+		@include fill-w-h();
+
+		&::before {
+			@include fill-w-h();
+			content: "";
+			z-index: 1;
+			background: linear-gradient(0deg, rgba(color(cola), 0) 60.85%, color(cola) 101.71%), linear-gradient(180deg, rgba(color(cola), 0) 33.93%, rgba(color(cola), 0.4) 88.68%);
+		}
+
+		&::after {
+			@include fill-w-h();
+			content: "";
+			z-index: 1;
+			background-color: rgba(color(cola), 0.5);
+		}
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.hero-intro {
+		position: relative;
+		z-index: 2;
+		padding: {
+			top: calc(var(--py-arrangements-hero-intro) * 2);
+			bottom: var(--py-arrangements-hero-intro);
+		}
+		color: color(milk);
+		text-align: center;
+	}
+
+	.hero-subtitle {
+		margin-bottom: spacer();
+	}
+
+	.hero-text {
+		margin-top: spacer(3);
+	}
+
+	.button-wrapper {
+		justify-content: center;
+	}
+
+	.arrangements {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--app-gutter-x-half);
+		margin-top: calc(-1 * var(--size-arrangement-hero));
+
+		.card {
+			flex: 0 0 var(--width-arrangement-hero-card);
+			max-width: var(--width-arrangement-hero-card);
+		}
+	}
+
+	.arrangements-wrapper {
+		.button-wrapper {
+			margin-top: var(--py-arrangements-hero-intro);
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		--width-arrangement-hero-card: calc(50% - (var(--app-gutter-x-half) / 2));
+		--size-arrangement-hero: #{spacer(10)};
+	}
+
+	@include media-breakpoint-up(lg) {
+		--py-arrangements-hero-intro: #{spacer(10)};
+		--width-arrangement-hero-card: calc(33.333% - (var(--app-gutter-x-half) / 1.5));
+		--size-arrangement-hero: #{spacer(20)};
+
+		.hero-top {
+			border-radius: 0px 0px 60px 60px;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--size-arrangement-hero: #{spacer(30)};
+	}
+}

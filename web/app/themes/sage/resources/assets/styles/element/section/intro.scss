@@ -1,0 +1,18 @@
+section.section--intro {
+	&:first-child {
+		margin-top: calc(var(--margin-section-y) / 1.5);
+	}
+
+	.intro-content {
+		text-align: center;
+	}
+
+	.subheader {
+		margin-bottom: spacer();
+		color: color(stone);
+	}
+
+	.intro-text {
+		margin-top: spacer(4);
+	}
+}

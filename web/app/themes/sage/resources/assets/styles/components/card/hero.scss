@@ -1,0 +1,93 @@
+.card.card--hero {
+	--padding-card-hero: #{spacer(3)};
+	overflow: hidden;
+	color: color(milk);
+
+	&::before {
+		@include fill-w-h;
+		content: "";
+		z-index: 2;
+		background-color: rgba(color(cola), 0.2);
+	}
+
+	.card-figure {
+		@include responsive-ratio(584, 320, true);
+		position: relative;
+		z-index: 1;
+		display: block;
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.card-video {
+		@include fill-w-h;
+		z-index: 4;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: spacer();
+		cursor: pointer;
+
+		.btn {
+			height: calc(var(--size-btn-io) * 1.2);
+			width: calc(var(--size-btn-io) * 1.2);
+		}
+
+		&:hover {
+			.btn {
+				background-color: color(rose);
+				color: color(milk);
+			}
+		}
+	}
+
+	.card-content {
+		position: relative;
+		@include fill-w-h;
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: var(--padding-card-hero);
+
+		.card-text {
+			position: absolute;
+			left: 0;
+			bottom: var(--padding-card-hero);
+			width: 100%;
+			text-align: center;
+			padding: {
+				right: var(--padding-card-hero);
+				left: var(--padding-card-hero);
+			}
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.card-figure {
+			transition: transform var(--speed-slow) var(--cubic-bezier-3);
+			transform: scale(1.05);
+		}
+
+		&:hover {
+			.card-figure {
+				transform: scale(1);
+			}
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		.card-figure {
+			@include fill-w-h(true);
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--padding-card-hero: #{spacer(4)};
+	}
+}

@@ -1,0 +1,56 @@
+.card.card--arrangement {
+	--padding-card-arrangement: #{spacer(3)};
+	--height-card-arrangement: 300px;
+	height: var(--height-card-arrangement);
+	width: 100%;
+	overflow: hidden;
+	color: color(milk);
+
+	&::before {
+		@include fill-w-h;
+		content: "";
+		z-index: 2;
+		background: linear-gradient(180deg, rgba(color(cola), 0) 33.93%, rgba(color(cola), 0.7) 88.68%);
+	}
+
+	.card-figure {
+		@include fill-w-h();
+		height: 120%;
+		width: 120%;
+		position: relative;
+		top: -10%;
+		left: -10%;
+		z-index: 1;
+		display: block;
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.card-content {
+		position: relative;
+		@include fill-w-h;
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		text-align: center;
+		padding: var(--padding-card-arrangement);
+	}
+
+	.card-text {
+		margin-top: spacer(1.5);
+	}
+
+	@include media-breakpoint-up(md) {
+		--height-card-arrangement: 450px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		--padding-card-arrangement: #{spacer(4)};
+		--height-card-arrangement: 550px;
+	}
+}

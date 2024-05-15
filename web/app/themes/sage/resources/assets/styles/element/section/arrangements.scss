@@ -1,0 +1,39 @@
+section.section--arrangements {
+	--mb-arrangements-intro: #{spacer(5)};
+	--width-arrangement-card: 100%;
+
+	.arrangements-intro {
+		margin-bottom: var(--mb-arrangements-intro);
+		text-align: center;
+	}
+
+	.arrangements-intro__text {
+		margin-top: spacer(3);
+	}
+
+	.arrangements {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--app-gutter-x-half);
+
+		.card {
+			flex: 0 0 var(--width-arrangement-card);
+			max-width: var(--width-arrangement-card);
+		}
+	}
+
+	.button-wrapper {
+		margin-top: var(--mb-arrangements-intro);
+		justify-content: center;
+	}
+
+	@include media-breakpoint-up(md) {
+		--width-arrangement-card: calc(50% - (var(--app-gutter-x-half) / 2));
+	}
+
+	@include media-breakpoint-up(lg) {
+		--mb-arrangements-intro: #{spacer(7.5)};
+		--width-arrangement-card: calc(33.333% - (var(--app-gutter-x-half) / 1.5));
+	}
+}

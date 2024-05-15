@@ -1,0 +1,54 @@
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+web/app/themes/sage/public
+web/app/cache
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Plugin
+!web/app/plugins/gravityforms
+!web/app/plugins/gravityforms-multilingual
+!web/app/plugins/gravityformsmailchimp
+!web/app/plugins/iconic-woo-attribute-swatches
+!web/app/plugins/sitepress-multilingual-cms
+!web/app/plugins/wpml-string-translation
+!web/app/plugins/woocommerce-multilingual
+!web/app/plugins/trustpilot-reviews
+!web/app/plugins/sendcloud-shipping
+!web/app/plugins/creame-whatsapp-me
+!web/app/plugins/export-all-urls
+!web/app/plugins/wp-google-maps
+!web/app/plugins/wp-google-maps-pro
+!web/app/plugins/paint-product-addon-for-woocommerce
+!web/app/plugins/wp-ultimate-csv-importer
+!web/app/plugins/free-gifts-for-woocommerce
+
+# !web/app/plugins/gravityformsmailchimp
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+
+# sage default
+node_modules
+*.map
+
+# OS generated files
+.DS_STORE
+.idea

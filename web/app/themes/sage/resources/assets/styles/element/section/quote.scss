@@ -1,0 +1,28 @@
+section.section--quote {
+	text-align: center;
+
+	.quote {
+		line-height: 150%;
+	}
+
+	.quote-author {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: spacer(2);
+		margin-top: spacer(4);
+	}
+
+	.quote-author__image {
+		position: relative;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+}

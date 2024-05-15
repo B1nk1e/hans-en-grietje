@@ -1,0 +1,91 @@
+:root {
+	// Bootstrap gutter
+	--app-gutter-x: #{$grid-gutter-width};
+	--app-gutter-x-half: calc(#{$grid-gutter-width} * 0.5);
+
+	// Spacer
+	--spacer: #{$app-spacer};
+
+	// Size
+	--size-custom-control-indicator: 18px;
+	--size-input: 58px;
+	--size-btn-io: 42px;
+
+	// Width
+	--width-grid-gutter: #{$grid-gutter-width};
+
+	// Height
+	--height-btn: 48px;
+	--height-navbar-top: 45px;
+	--height-navbar: 80px;
+	--height-card-hero: 320px;
+
+	// Padding
+	--padding-button: 17px 20px;
+	--padding-input: 20px;
+
+	// Margins
+	--margin-section-y: #{spacer(8)};
+
+	// Font size
+	--font-size-base: #{clamp-calculator(14, 16)};
+
+	// Line height
+	--line-height-base: #{clamp-calculator(25, 29)};
+
+	// Leter spacing
+	--letter-spacing-base: -0.08px;
+	--letter-spacing-btn: 1px;
+
+	// Transition
+	--speed-fast: 0.125s;
+	--speed-default: 0.25s;
+	--speed-slow: 0.5s;
+	--speed-sluggish: 1s;
+	--speed-snail: 2s;
+
+	// Easing
+	--cubic-bezier: cubic-bezier(0.12, 0, 0.39, 0);
+	--cubic-bezier-2: cubic-bezier(0.61, 1, 0.88, 1);
+	--cubic-bezier-3: cubic-bezier(0.5, 1, 0.89, 1);
+	--cubic-bezier-4: cubic-bezier(0.25, 1, 0.5, 1);
+	--cubic-bezier-5: cubic-bezier(0.76, 0, 0.24, 1);
+	--cubic-bezier-6: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+	// Fonts
+	--font-family-base: "NeueMontreal", sans-serif;
+	--font-family-heading: "IvyPrestoDisplay", sans-serif;
+
+	@include media-breakpoint-up(xs) {
+	}
+
+	@include media-breakpoint-up(lg) {
+		// Size
+		--size-btn-io: 50px;
+
+		// Width
+		--width-grid-gutter: 20px;
+
+		// Margins
+		--margin-section-y: #{spacer(15)};
+	}
+
+	@include media-breakpoint-up(xl) {
+		// Width
+		--width-grid-gutter: 25px;
+
+		// Height
+		--height-navbar: 145px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		// Width
+		--width-grid-gutter: 30px;
+
+		// Margins
+		--margin-section-y: #{spacer(27.5)};
+	}
+
+	@include media-breakpoint-up(fhd) {
+	}
+}

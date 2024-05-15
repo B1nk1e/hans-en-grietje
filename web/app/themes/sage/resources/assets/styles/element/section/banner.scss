@@ -1,0 +1,69 @@
+section.section--banner {
+	--width--card-banner: 90%;
+
+	.banner {
+		@include responsive-ratio(1000, 1000);
+		position: relative;
+		display: block;
+
+		&::before {
+			@include fill-w-h;
+			z-index: 1;
+			content: "";
+			background: linear-gradient(180deg, rgba(color(cola), 0) 65.36%, rgba(color(cola), 0.4) 100%);
+		}
+
+		picture,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.banner-card {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		justify-content: center;
+		margin-top: calc(-1 * var(--height-card-hero) / 3.5);
+
+		.card {
+			flex: 0 0 var(--width--card-banner);
+			max-width: var(--width--card-banner);
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		.banner {
+			margin: {
+				right: calc(-1 * var(--app-gutter-x-half));
+				left: calc(-1 * var(--app-gutter-x-half));
+			}
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		--width--card-banner: 75%;
+	}
+
+	@include media-breakpoint-up(md) {
+		.banner {
+			@include responsive-ratio(1800, 840);
+		}
+
+		.banner-card {
+			margin-top: calc(-1 * (var(--height-card-hero) / 2));
+
+			.card {
+				height: var(--height-card-hero);
+			}
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		--width--card-banner: 50%;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		--width--card-banner: 33.333%;
+	}
+}

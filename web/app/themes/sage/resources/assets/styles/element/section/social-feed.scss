@@ -1,0 +1,84 @@
+section.section--social-feed {
+	--size-social-feed: #{spacer(3)};
+	overflow: hidden;
+	background-color: color(milk);
+	padding: {
+		top: var(--margin-section-y);
+		bottom: var(--margin-section-y);
+	}
+
+	.social-feed__intro {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		margin-bottom: spacer(7.5);
+	}
+
+	.button-wrapper {
+		margin-top: var(--size-social-feed);
+	}
+
+	.social-feed__text {
+		margin-top: calc(var(--size-social-feed) / 1.75);
+		color: color(stone);
+	}
+
+	.tns-ovh {
+		overflow: visible;
+	}
+
+	.tns-inner {
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 100%;
+			height: 100%;
+			width: 200vw;
+			background-color: color(milk);
+		}
+	}
+
+	.instagram-feed {
+		display: flex;
+	}
+
+	.instagram-item {
+		overflow: hidden;
+	}
+
+	.instagram-item__figure {
+		@include responsive-ratio(330, 330, true);
+		position: relative;
+		display: block;
+
+		video,
+		img {
+			@include fill-w-h(true);
+		}
+	}
+
+	.instagram-item__content {
+		padding: spacer(4);
+		background-color: color(creme);
+		height: 100%;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include media-breakpoint-up(xl) {
+		--size-social-feed: #{spacer(7.5)};
+
+		.social-feed__intro {
+			margin-bottom: 0;
+		}
+	}
+}

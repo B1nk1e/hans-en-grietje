@@ -1,0 +1,18 @@
+section.section--title-text {
+	.title-text__title {
+		margin-bottom: spacer(2);
+	}
+
+	@include media-breakpoint-up(md) {
+		.title-text__wrapper {
+			display: flex;
+			gap: var(--app-gutter-x);
+
+			.title-text__title,
+			.title-text__content {
+				flex: 0 0 calc(50% - var(--app-gutter-x-half));
+				max-width: calc(50% - var(--app-gutter-x-half));
+			}
+		}
+	}
+}

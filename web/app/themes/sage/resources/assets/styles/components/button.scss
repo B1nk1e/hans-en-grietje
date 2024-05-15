@@ -1,0 +1,97 @@
+.btn {
+	--padding-btn: #{spacer(1.5)} #{spacer(3)};
+	--padding-btn-small: #{spacer(0.75)} #{spacer(1.5)};
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 999px;
+	background-color: color(milk);
+	padding: var(--padding-btn);
+	font-weight: 700;
+	font-size: var(--font-size-base);
+	color: color(text);
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	&.btn--small {
+		font-size: calc(var(--font-size-base) / 1.15);
+		padding: var(--padding-btn-small);
+	}
+
+	&.btn--ir {
+		i {
+			margin-left: spacer();
+		}
+	}
+
+	&.btn--il {
+		i {
+			margin-right: spacer();
+		}
+	}
+
+	&.btn--io {
+		justify-content: center;
+		width: var(--size-btn-io);
+		height: var(--size-btn-io);
+		border-radius: 50%;
+		padding: 0;
+		font-size: 24px;
+	}
+
+	&.btn--blur {
+		background-color: rgba(color(milk), 0.2);
+		backdrop-filter: blur(4px);
+		color: color(milk);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		transition: background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2), opacity var(--speed-default) var(--cubic-bezier-2);
+
+		&:hover {
+			@each $name, $value in $colors {
+				background-color: color(rose);
+				color: color(milk);
+
+				&.btn--#{$name} {
+					@if $name == "rose" {
+						background-color: darken(color(rose), 15);
+					}
+				}
+			}
+		}
+	}
+
+	@each $name, $value in $colors {
+		&.btn--#{$name} {
+			border-color: color($name);
+			background-color: color($name);
+
+			@if $name == "rose" {
+				color: color(milk);
+			}
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		--padding-btn: #{spacer(2)} #{spacer(4)};
+		--padding-btn-small: #{spacer()} #{spacer(2)};
+	}
+}
+
+.button-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: spacer();
+	margin-top: spacer(2);
+
+	@include media-breakpoint-up(lg) {
+		margin-top: spacer(4);
+	}
+}

@@ -1,0 +1,26 @@
+section.section--form {
+	padding: {
+		top: calc(var(--margin-section-y) / 1.6);
+		bottom: var(--margin-section-y);
+	}
+	background-color: color(milk);
+
+	h2 {
+		line-height: 120%;
+	}
+
+	.form-text {
+		margin-top: spacer(3);
+		line-height: 1.6;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include media-breakpoint-down(lg) {
+		.gform_wrapper {
+			margin-top: spacer(4);
+		}
+	}
+}

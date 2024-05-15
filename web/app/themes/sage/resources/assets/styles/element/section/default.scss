@@ -1,0 +1,9 @@
+section {
+	margin-bottom: var(--margin-section-y);
+
+	&:first-child {
+		&:not(.section--hero, .section--hero-arrangements) {
+			padding-top: calc(var(--height-navbar) + var(--height-navbar-top));
+		}
+	}
+}
